@@ -1,6 +1,30 @@
 # include "cub3d.h"
 # include "libft.h"
 
+int	clear_pointer(char **p)
+{
+	int i;
+
+	i = 0;
+	while(p[i])
+	{
+		free(p[i]);
+		i++;
+	}
+	free(p);
+	return (SUCCESS);
+}
+
+void clear_header()
+{
+	free(g_header.nor_texture);
+	free(g_header.sou_texture);
+	free(g_header.wes_texture);
+	free(g_header.eas_texture);
+	free(g_header.spr_texture);
+}
+
+
 static int	get_resolution(const char *line)
 {
 	char **word;
@@ -10,6 +34,7 @@ static int	get_resolution(const char *line)
 		message_err(RESOLUTION_ERRO);
 	g_header.resolution[0] = ft_atoi(word[1]);
 	g_header.resolution[1] = ft_atoi(word[2]);
+	clear_pointer(word);
 	return (SUCCESS);
 }
 
@@ -21,16 +46,17 @@ static int	get_texture(const char *line)
 	if (!word[1])
 		message_err(TEXTURE_EMPTY);
 	if (!ft_strncmp(word[0], "NO", 2))
-		g_header.nor_texture = word[1];
+		g_header.nor_texture = ft_strdup(word[1]);
 	else if (!ft_strncmp(word[0], "SO", 2))
-		g_header.sou_texture = word[1];
+		g_header.sou_texture = ft_strdup(word[1]);
 	else if (!ft_strncmp(word[0], "WE", 2))
-		g_header.wes_texture = word[1];
+		g_header.wes_texture = ft_strdup(word[1]);
 	else if (!ft_strncmp(word[0], "EA", 2))
-		g_header.eas_texture = word[1];
+		g_header.eas_texture = ft_strdup(word[1]);
 	else if (!ft_strncmp(word[0], "S", 1))
-		g_header.spr_texture = word[1];
-	return(0);
+		g_header.spr_texture = ft_strdup(word[1]);
+	clear_pointer(word);
+	return(SUCCESS);
 }
 
 static int	get_color(const char *line)
@@ -54,7 +80,10 @@ static int	get_color(const char *line)
 		g_header.fl_color[1] = ft_atoi(color[1]);
 		g_header.fl_color[2] = ft_atoi(color[2]);
 	}
-	return(0);
+	clear_pointer(word);
+	clear_pointer(color);
+	
+	return(SUCCESS);
 }
 
 int			get_header(const char *line)

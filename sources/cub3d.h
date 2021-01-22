@@ -17,10 +17,23 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
 
-#define SUCCESS 0
+# define SUCCESS 0
 
-enum	e_erros
+static char	g_errors[][50] =
+{
+	"number of arguments",
+	"source is not found",
+	"can not open file",
+	"read file",
+	"file was not read in full",
+	"resolution is incorrect",
+	"source for texture is empty",
+	"incorrect value or invalid range for color"
+};
+
+enum		e_erros
 {
 	ARGUMENT,
 	SOURCE_NFOUND,
@@ -32,7 +45,7 @@ enum	e_erros
 	INCORRECT_COLOR
 };
 
-struct s_header
+struct		s_header
 {
 	int		resolution[2];
 	char	*nor_texture;
@@ -42,10 +55,18 @@ struct s_header
 	char	*spr_texture;
 	int		ce_color[3];
 	int		fl_color[3];
+	char	full;
 } g_header;
 
-int read_file(const char *source);
-int message_err(const int err_number);
-int	get_header(const char *line);
+char **g_map;
+int	g_count_line;
+
+int			read_file(const char *source);
+int			message_err(const int err_number);
+int			get_header(const char *line);
+int			get_map(char *line);
+int			clear_pointer(char **p);
+void		clear_header();
+char		**change_matriz(char **map, char *line, int count_line);
 
 #endif

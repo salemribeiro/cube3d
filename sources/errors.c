@@ -12,19 +12,6 @@
 
 #include "cub3d.h"
 
-char	g_errors[][50] =
-{
-	"number of arguments",
-	"source is not found",
-	"can not open file",
-	"read file",
-	"file was not read in full",
-	"resolution is incorrect",
-	"source for texture is empty",
-	"incorrect value or invalid range for color"
-
-};
-
 int		message_err(const int err_number)
 {
 	printf("Erros:\n%s\n", g_errors[err_number]);

@@ -21,7 +21,8 @@ LIBA	= ./sources/gnl/get_next_line.a ./sources/libft/libft.a
 
 SRCS	=	read_file.c \
 			errors.c \
-			header_treatment.c
+			header_treatment.c \
+			get_map.c
 
 CSRCS = $(patsubst %.c, $(PSRCS)%.c, $(SRCS))
 

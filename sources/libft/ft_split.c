@@ -81,6 +81,6 @@ char		**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	split[count] = 0;
+	split[count] = NULL;
 	return (split);
 }
