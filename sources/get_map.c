@@ -1,6 +1,13 @@
 #include "cub3d.h"
 #include "libft.h"
 
+int check_caracter(char c)
+{
+	if (c != '0' && c != '1' && c != '2' && c != ' ' &&
+		c != 'N' && c != 'S' && c != 'E' && c != 'W')
+		message_err(INCORRECT_MAP);
+	return (SUCCESS);
+}
 
 char	**change_matriz(char **map, char *line, int count_line)
 {
@@ -19,21 +26,26 @@ char	**change_matriz(char **map, char *line, int count_line)
 	return(tmp);
 }
 
-int get_map(char *line)
+int		get_map(char *line)
 {
-	int			i;
-	
+	int	i;
+
 	i = 0;
-	if (line[0] != '0' && line[0] != '1' && line[0] != '2' && line[0] != ' ' &&
-		line[0] != 'N' && line[0] != 'S' && line[0] != 'E' && line[0] != 'W')
-	return (0);
+	
 	if (!g_count_line)
 	{
-		g_map = (char**)ft_calloc(sizeof(char*), 1);
-		g_map[0] = ft_strdup(line);
+		if (ft_strlen(line))
+		{
+			g_map = (char**)ft_calloc(sizeof(char*), 1);
+			g_map[0] = ft_strdup(line);
+			g_count_line++;
+		}
 	}
 	else
+	{
+		check_caracter(line[0]);
 		g_map = change_matriz(g_map, ft_strdup(line), g_count_line);
-	g_count_line++;
+		g_count_line++;
+	}
 	return(SUCCESS);
 }

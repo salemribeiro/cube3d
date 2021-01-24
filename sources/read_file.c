@@ -32,14 +32,19 @@ static int	build_to_memory(int fd)
 			get_header(line);
 			check_full();
 		}
-		else
+		else if (check_header() == SUCCESS)
 			get_map(line);		
 		
 		free(line);
 		if (ret <= 0)
+		{
+			if (!g_header.full)
+				message_err(INVALID_FILE);
 			break;
+		}
 		ret = get_next_line(fd, &line);
 	}
+
 	g_map = change_matriz(g_map, NULL, g_count_line);
 	return(SUCCESS);
 }
