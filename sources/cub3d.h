@@ -30,7 +30,14 @@ static char	g_errors[][50] =
 	"file was not read in full",
 	"resolution is incorrect",
 	"source for texture is empty",
-	"incorrect value or invalid range for color"
+	"incorrect value or invalid range for color",
+	"map data error, information is not valid",
+	"map is empty",
+	"invalid file",
+	"invalid header",
+	"invalid texture",
+	"your map must have only one player",
+	"map is invalid"
 };
 
 enum		e_erros
@@ -42,9 +49,19 @@ enum		e_erros
 	READ_NCOMPLETED,
 	RESOLUTION_ERRO,
 	TEXTURE_EMPTY,
-	INCORRECT_COLOR
+	INCORRECT_COLOR,
+	INCORRECT_MAP,
+	MAP_EMPTY,
+	INVALID_FILE,
+	INVALID_HEADER,
+	INVALID_TEXTURE,
+	MUCH_PLAYERS,
+	INVALID_MAP
 };
 
+
+char		**g_map;
+int			g_count_line;
 struct		s_header
 {
 	int		resolution[2];
@@ -57,9 +74,14 @@ struct		s_header
 	int		fl_color[3];
 	char	full;
 } g_header;
-
-char **g_map;
-int	g_count_line;
+struct 		s_world
+{
+	char 	**map;
+	int		lines;
+	int		columns;
+	char 	player[2];
+	char 	vision;
+} g_world;
 
 int			read_file(const char *source);
 int			message_err(const int err_number);
@@ -68,5 +90,11 @@ int			get_map(char *line);
 int			clear_pointer(char **p);
 void		clear_header();
 char		**change_matriz(char **map, char *line, int count_line);
+int			normalize_map(char **map);
+void		verify_line(const char *line);
+int			check_caracter(char c);
+int			check_header();
+int			check_map(char **map);
+int			check_rgb(int color[]);
 
 #endif
