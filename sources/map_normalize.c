@@ -24,7 +24,6 @@ static int get_player(char **map)
 	vision = 0;
 	while(map[i])
 	{
-		printf("%s\n", map[i]);
 		j = 0;
 		while(map[i][j])
 		{

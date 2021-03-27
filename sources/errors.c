@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
+#include "ft_printf.h"
 
 void	verify_line(const char *line)
 {
@@ -22,13 +22,13 @@ void	verify_line(const char *line)
 	{
 		if(line[i] != ' ' && line[i] != '\n')
 			message_err(INVALID_HEADER);
-			i++;
+		i++;
 	}
 	return ;
 }
 
 int		message_err(const int err_number)
 {
-	printf("Error\n%s\n", g_errors[err_number]);
+	ft_printf("Error\n%s\n", g_errors[err_number]);
 	exit(1);
 }
