@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run: apt update -y && apt upgrade -y
-      - run: apt install make clang git ruby ruby-bundler ruby-dev build-essential
+      - run: apt install make clang git ruby ruby-bundler ruby-dev build-essential -y
       - run: git clone https://github.com/42Paris/norminette.git ~/.norminette/
       - run: cd ~/.norminette/ && bundle
       - run: echo 'alias norminette="~/.norminette/norminette.rb"' >> ~/.bashrc
