@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Created: 2020/01/24 19:33:59 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/02/10 15:37:21 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_printf.h"
 
-void	verify_line(const char *line)
+size_t		ft_strlen(const char *source)
 {
 	int i;
 
 	i = 0;
-	while(line[i])
-	{
-		if(line[i] != ' ' && line[i] != '\n')
-			message_err(INVALID_HEADER);
+	while (source[i] != '\0')
 		i++;
-	}
-	return ;
-}
-
-int		message_err(const int err_number)
-{
-	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
+	return (i);
 }

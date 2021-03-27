@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   print_funcions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Created: 2020/06/27 21:46:59 by salem             #+#    #+#             */
+/*   Updated: 2020/11/29 13:27:47 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_printf.h"
 
-void	verify_line(const char *line)
+int		ft_printstr(char *text, int size)
+{
+	g_opt.count += (int)write(1, &text[0], size);
+	return (size);
+}
+
+int		create_buffer(void)
 {
 	int i;
 
 	i = 0;
-	while(line[i])
-	{
-		if(line[i] != ' ' && line[i] != '\n')
-			message_err(INVALID_HEADER);
-		i++;
-	}
-	return ;
-}
-
-int		message_err(const int err_number)
-{
-	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
+	while (i < 2048)
+		g_opt.text[i++] = '\0';
+	return (0);
 }

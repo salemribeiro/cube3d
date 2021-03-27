@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Created: 2020/05/07 20:46:14 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/05/07 20:46:17 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_printf.h"
 
-void	verify_line(const char *line)
+char	*ft_strdup(const char *src)
 {
-	int i;
+	char	*ans;
+	int		i;
 
 	i = 0;
-	while(line[i])
+	while (src[i] != '\0')
+		i++;
+	if (!(ans = malloc(sizeof(char) * i + 1)))
+		return (0);
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if(line[i] != ' ' && line[i] != '\n')
-			message_err(INVALID_HEADER);
+		ans[i] = src[i];
 		i++;
 	}
-	return ;
-}
-
-int		message_err(const int err_number)
-{
-	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
+	ans[i] = '\0';
+	return (ans);
 }

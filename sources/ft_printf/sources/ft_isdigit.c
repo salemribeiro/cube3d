@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_treatment.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 12:11:22 by salem             #+#    #+#             */
-/*   Updated: 2021/03/27 12:11:23 by salem            ###   ########.fr       */
+/*   Created: 2020/01/27 19:25:28 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/02/10 15:06:44 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "ft_printf.h"
 
-int			check_rgb(int *color)
+int		ft_isdigit(int caracter)
 {
-	int i;
-
-	i = 0;
-	while(i < 3)
-	{
-		if (color[i] < 0 || color[i] > 255)
-			return(INCORRECT_COLOR);
-		i++;
-	}
-	return(SUCCESS);
+	if (caracter >= '0' && caracter <= '9')
+		return (1);
+	return (0);
 }

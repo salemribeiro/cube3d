@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Created: 2019/12/09 22:52:48 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/05/08 14:45:30 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_printf.h"
 
-void	verify_line(const char *line)
+size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int i;
+	size_t i;
+	size_t j;
 
 	i = 0;
-	while(line[i])
+	j = 0;
+	if (!dest || !src)
+		return (0);
+	while (src[j] != '\0')
+		j++;
+	if (size > 0)
 	{
-		if(line[i] != ' ' && line[i] != '\n')
-			message_err(INVALID_HEADER);
-		i++;
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return ;
-}
-
-int		message_err(const int err_number)
-{
-	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
+	return (j);
 }

@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Created: 2020/01/20 17:43:00 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/02/10 15:43:32 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_printf.h"
 
-void	verify_line(const char *line)
+void	ft_bzero(void *source, size_t len)
 {
-	int i;
+	unsigned char	*strtemp;
+	size_t			i;
 
+	strtemp = source;
 	i = 0;
-	while(line[i])
+	while (i < len)
 	{
-		if(line[i] != ' ' && line[i] != '\n')
-			message_err(INVALID_HEADER);
+		strtemp[i] = '\0';
 		i++;
 	}
-	return ;
-}
-
-int		message_err(const int err_number)
-{
-	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
 }

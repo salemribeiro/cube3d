@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_treatment.c                                  :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 12:11:22 by salem             #+#    #+#             */
-/*   Updated: 2021/03/27 12:11:23 by salem            ###   ########.fr       */
+/*   Created: 2020/02/10 17:57:20 by sfreitas          #+#    #+#             */
+/*   Updated: 2020/05/07 22:31:06 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "ft_printf.h"
 
-int			check_rgb(int *color)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int i;
+	void *ptr;
 
-	i = 0;
-	while(i < 3)
-	{
-		if (color[i] < 0 || color[i] > 255)
-			return(INCORRECT_COLOR);
-		i++;
-	}
-	return(SUCCESS);
+	ptr = (void*)malloc(count * size);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }
