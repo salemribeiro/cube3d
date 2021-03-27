@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sfreitas                                   +#+  +:+       +#+         #
+#    By: salem <salem@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/29 23:01:06 by sfreitas          #+#    #+#              #
-#    Updated: 2020/04/29 23:01:42 by sfreitas         ###   ########.fr        #
+#    Updated: 2021/03/27 14:42:44 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = get_next_line.a
 SRCS = *.c
 OBJS = *.o
 CPARAMS = -c
-CFLAGS = -Wall -Werror -Wextra -D BUFFER_SIZE=70 -g
+CFLAGS = -Wall -Werror -Wextra -D BUFFER_SIZE=70
 CC = gcc
 AR = ar
 ARPARAMS = -rc
