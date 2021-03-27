@@ -1,3 +1,7 @@
 *.o
 ./docs
 cub3D
+cub3d.cub
+libftprintf.a
+get_next_line.a
+libft.a
