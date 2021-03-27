@@ -1,14 +1,14 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1
 jobs:
-  build:
-    executor:
-      name: node/default
-      tag: '10.4'
+  norminette:
+    docker: 
+      - image: ubuntu:20.04
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      - run: npm run test
+      - steps:
+      - run: apt update -y && apt upgrade -y
+      - run: apt install make clang git ruby ruby-bundler ruby-dev build-essential
+      - run: git clone https://github.com/42Paris/norminette.git ~/.norminette/
+      - run: cd ~/.norminette/ && bundle
+      - run: echo 'alias norminette="~/.norminette/norminette.rb"' >> ~/.bashrc
+      - run: source ~/.bashrc        
