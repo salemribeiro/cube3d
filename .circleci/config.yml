@@ -5,9 +5,16 @@ jobs:
       - image: salemribeiro/42tests_salem:latest
     steps:
       - checkout
-     
+  qa:
+    docker: 
+        - image: salemribeiro/42tests_salem:latest
+    steps:
+      - run: git checkout main && git merge qa
+      
 workflows:
   version: 2.1
-  test_nome:
+  test_norme:
     jobs:
       - tests
+  
+  
