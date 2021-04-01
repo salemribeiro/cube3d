@@ -6,7 +6,8 @@ jobs:
       - image: salemribeiro/42tests_salem:latest
     steps:
       - checkout
-      - run: bash ~/project/scripts/norme.sh ../
+      - run: cp ~/project/scripts/norme.sh /bin/norme.sh
+      - run: bash norme.sh ../
   qa:
     docker: 
         - image: salemribeiro/42tests_salem:latest
