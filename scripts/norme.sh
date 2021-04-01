@@ -30,8 +30,8 @@
 #
 #   Importate: Norminette só verifica arquivos com extensão "*.c" ou "*.h"
 
-norminetteC="$HOME/.norminette/norminette.rb *.c"
-norminetteH="$HOME/.norminette/norminette.rb *.c"
+norminetteC="~/.norminette/norminette.rb *.c"
+norminetteH="~/.norminette/norminette.rb *.c"
 
 if [ -z $1 ]; then
     echo "Erro - argumentos são esperados"
