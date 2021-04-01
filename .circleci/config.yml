@@ -6,7 +6,7 @@ jobs:
       - image: salemribeiro/42tests_salem:latest
     steps:
       - checkout
-      - run: cd scipts
+      - run: cd /root/project/scripts
       - run: ./norme.sh ../
   qa:
     docker: 
