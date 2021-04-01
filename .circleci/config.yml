@@ -1,13 +1,12 @@
 version: 2.1
 jobs:
   tests:
-    working_directory: ~/project
+    working_directory: ~/project/scripts
     docker: 
       - image: salemribeiro/42tests_salem:latest
     steps:
       - checkout
-      - run: cd /root/project/scripts
-      - run: bash ./norme.sh ../
+      - run: bash $home/project/norme.sh ../
   qa:
     docker: 
         - image: salemribeiro/42tests_salem:latest
