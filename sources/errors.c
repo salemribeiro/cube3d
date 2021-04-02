@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/01/20 03:00:14 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/01 23:16:41 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	verify_line(const char *line)
 	int i;
 
 	i = 0;
-	while(line[i])
+	while (line[i])
 	{
-		if(line[i] != ' ' && line[i] != '\n')
+		if (line[i] != ' ' && line[i] != '\n')
 			message_err(INVALID_HEADER);
 		i++;
 	}

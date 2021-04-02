@@ -6,33 +6,33 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:10:42 by salem             #+#    #+#             */
-/*   Updated: 2021/03/27 12:10:43 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/01 23:38:40 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
 
-static int get_player(char **map)
+static int	get_player(char **map)
 {
-	int i;
-	int j;
-	char vision;
+	int		i;
+	int		j;
+	char	vision;
 
 	i = 0;
 	j = 0;
 	vision = 0;
-	while(map[i])
+	while (map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 		{
 			check_caracter(map[i][j]);
 			vision = map[i][j];
-			if(vision == 'N' || vision == 'S' ||
-				vision == 'E' || vision =='W')
-			{	
-				if(g_world.vision)
+			if (vision == 'N' || vision == 'S' ||
+				vision == 'E' || vision == 'W')
+			{
+				if (g_world.vision)
 					message_err(MUCH_PLAYERS);
 				g_world.vision = vision;
 				g_world.player[0] = i;
@@ -42,25 +42,24 @@ static int get_player(char **map)
 		}
 		i++;
 	}
-	return(SUCCESS);
+	return (SUCCESS);
 }
 
-
-static char **create_new_matriz(int y, int x)
+static char	**create_new_matriz(int y, int x)
 {
-	char **map;
-	int i;
-	int j;
-	int len;
+	char	**map;
+	int		i;
+	int		j;
+	int		len;
 
 	i = 0;
 	map = (char**)ft_calloc(sizeof(char*), y + 1);
-	while(i < (y - 1))
+	while (i < (y - 1))
 	{
 		j = 0;
 		map[i] = (char*)ft_calloc(sizeof(char), x + 1);
 		len = ft_strlen(g_map[i]);
-		while(j < x)
+		while (j < x)
 		{
 			if (j < len)
 				map[i][j] = g_map[i][j];
@@ -76,7 +75,7 @@ static char **create_new_matriz(int y, int x)
 	return (map);
 }
 
-int	normalize_map(char **map)
+int		normalize_map(char **map)
 {
 	int x;
 	int y;
@@ -85,12 +84,12 @@ int	normalize_map(char **map)
 	x = 0;
 	y = 0;
 	value = 0;
-	while(map[y])
+	while (map[y])
 	{
 		value = ft_strlen(map[y]);
 		if (value > x)
 			x = value;
-		y++; 
+		y++;
 	}
 	if (y > 0)
 	{
@@ -102,5 +101,5 @@ int	normalize_map(char **map)
 	else
 		message_err(MAP_EMPTY);
 	get_player(g_world.map);
-	return(SUCCESS);
+	return (SUCCESS);
 }

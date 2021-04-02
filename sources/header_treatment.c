@@ -6,14 +6,14 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:10:47 by salem             #+#    #+#             */
-/*   Updated: 2021/03/27 12:10:51 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/01 23:21:54 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
-# include "libft.h"
+#include "cub3d.h"
+#include "libft.h"
 
-int			check_header()
+int			check_header(void)
 {
 	if (check_rgb(g_header.ce_color) == INCORRECT_COLOR)
 		message_err(INCORRECT_COLOR);
@@ -27,7 +27,6 @@ static int	get_resolution(const char *line)
 	char **word;
 
 	word = ft_split(line, ' ');
-	
 	if (!word[1] || !word[2] || word[3] ||
 		g_header.resolution[0] != 0 || g_header.resolution[1] != 0)
 		message_err(RESOLUTION_ERRO);
@@ -57,7 +56,7 @@ static int	get_texture(const char *line)
 	else
 		message_err(INVALID_TEXTURE);
 	clear_pointer(word);
-	return(SUCCESS);
+	return (SUCCESS);
 }
 
 static int	get_color(const char *line)
@@ -87,7 +86,7 @@ static int	get_color(const char *line)
 	}
 	clear_pointer(word);
 	clear_pointer(color);
-	return(SUCCESS);
+	return (SUCCESS);
 }
 
 int			get_header(const char *line)
@@ -113,5 +112,5 @@ int			get_header(const char *line)
 		else
 			verify_line(line);
 	}
-	return(0);
+	return (0);
 }

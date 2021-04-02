@@ -6,14 +6,14 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:11:02 by salem             #+#    #+#             */
-/*   Updated: 2021/03/27 12:11:02 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/01 23:18:35 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
 
-int check_caracter(char c)
+int		check_caracter(char c)
 {
 	if (c != '0' && c != '1' && c != '2' && c != ' ' &&
 		c != 'N' && c != 'S' && c != 'E' && c != 'W')
@@ -23,8 +23,8 @@ int check_caracter(char c)
 
 char	**change_matriz(char **map, char *line, int count_line)
 {
-	char **tmp;
-	int i;
+	char	**tmp;
+	int		i;
 
 	i = 0;
 	tmp = (char**)ft_calloc(sizeof(char*), (count_line + 1));
@@ -35,7 +35,7 @@ char	**change_matriz(char **map, char *line, int count_line)
 	}
 	tmp[i] = line;
 	free(map);
-	return(tmp);
+	return (tmp);
 }
 
 int		get_map(char *line)
@@ -43,7 +43,6 @@ int		get_map(char *line)
 	int	i;
 
 	i = 0;
-	
 	if (!g_count_line)
 	{
 		if (ft_strlen(line))
@@ -59,5 +58,5 @@ int		get_map(char *line)
 		g_map = change_matriz(g_map, ft_strdup(line), g_count_line);
 		g_count_line++;
 	}
-	return(SUCCESS);
+	return (SUCCESS);
 }

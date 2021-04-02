@@ -6,7 +6,7 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:55:37 by sfreitas          #+#    #+#             */
-/*   Updated: 2021/03/27 12:11:07 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/01 23:16:03 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ enum		e_erros
 	INVALID_MAP
 };
 
-
 char		**g_map;
 int			g_count_line;
 struct		s_header
@@ -73,15 +72,16 @@ struct		s_header
 	int		ce_color[3];
 	int		fl_color[3];
 	char	full;
-} g_header;
-struct 		s_world
+}			g_header;
+
+struct		s_world
 {
-	char 	**map;
+	char	**map;
 	int		lines;
 	int		columns;
-	char 	player[2];
-	char 	vision;
-} g_world;
+	char	player[2];
+	char	vision;
+}			g_world;
 
 int			read_file(const char *source);
 int			message_err(const int err_number);
