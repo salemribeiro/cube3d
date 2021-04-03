@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:55:37 by sfreitas          #+#    #+#             */
-/*   Updated: 2021/04/02 12:13:24 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/03 17:27:50 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	g_errors[][50] =
 	"invalid file",
 	"invalid header",
 	"invalid texture",
-	"your map must have only one player",
+	"your map have so much players",
 	"map is invalid"
 };
 
@@ -97,5 +97,6 @@ int			check_caracter(char c);
 int			check_header();
 int			check_map(char **map);
 int			check_rgb(int color[]);
+void		add_color(char **color, char option);
 
 #endif
