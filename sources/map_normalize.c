@@ -3,38 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   map_normalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:10:42 by salem             #+#    #+#             */
-/*   Updated: 2021/04/01 23:38:40 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/03 17:51:25 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
+#include "ft_printf.h"
 
 static int	get_player(char **map)
 {
 	int		i;
 	int		j;
-	char	vision;
+	char	vs;
 
 	i = 0;
-	j = 0;
-	vision = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
 			check_caracter(map[i][j]);
-			vision = map[i][j];
-			if (vision == 'N' || vision == 'S' ||
-				vision == 'E' || vision == 'W')
+			vs = map[i][j];
+			if (vs == 'N' || vs == 'S' || vs == 'E' || vs == 'W')
 			{
 				if (g_world.vision)
 					message_err(MUCH_PLAYERS);
-				g_world.vision = vision;
+				g_world.vision = vs;
 				g_world.player[0] = i;
 				g_world.player[1] = j;
 			}
@@ -61,10 +59,7 @@ static char	**create_new_matriz(int y, int x)
 		len = ft_strlen(g_map[i]);
 		while (j < x)
 		{
-			if (j < len)
-				map[i][j] = g_map[i][j];
-			else
-				map[i][j] = ' ';
+			map[i][j] = j < len ? g_map[i][j] : ' ';
 			j++;
 		}
 		map[i][j] = '\0';
@@ -75,7 +70,7 @@ static char	**create_new_matriz(int y, int x)
 	return (map);
 }
 
-int		normalize_map(char **map)
+int			normalize_map(char **map)
 {
 	int x;
 	int y;

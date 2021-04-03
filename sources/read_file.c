@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:10:05 by salem             #+#    #+#             */
-/*   Updated: 2021/04/01 23:56:50 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/03 16:03:47 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ static void	check_full(void)
 	check = g_header.wes_texture && check ? 1 : 0;
 	check = g_header.eas_texture && check ? 1 : 0;
 	check = g_header.spr_texture && check ? 1 : 0;
-	check = (g_header.ce_color[0] || g_header.ce_color[1] || g_header.ce_color[2]) &&
-	check ? 1 : 0;
-	check = (g_header.fl_color[0] || g_header.fl_color[1] || g_header.fl_color[2]) &&
-	check ? 1 : 0;
+	check = (g_header.ce_color[0] || g_header.ce_color[1] ||
+			g_header.ce_color[2]) && check ? 1 : 0;
+	check = (g_header.fl_color[0] || g_header.fl_color[1] ||
+			g_header.fl_color[2]) && check ? 1 : 0;
 	g_header.full = check;
 }
+
+/*
+** Set header data in memory and after add map in memory
+*/
 
 static int	build_to_memory(int fd)
 {
@@ -58,6 +62,11 @@ static int	build_to_memory(int fd)
 	g_map = change_matriz(g_map, NULL, g_count_line);
 	return (SUCCESS);
 }
+
+/*
+** Check the existence of the document and call function
+** responsable to put data in memory
+*/
 
 int			read_file(const char *source)
 {
