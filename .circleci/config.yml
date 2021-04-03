@@ -9,8 +9,8 @@ jobs:
       - run: norme.sh ~/project/sources/
       - run: norme.sh ~/project/sources/gnl/
       - run: norme.sh ~/project/sources/libft/
-      - run: norme.sh ~/project/ft_printf/sources/
-      - run: norme.sh ~/project/ft_printf/headers/
+      - run: norme.sh ~/project/sources/ft_printf/sources/
+      - run: norme.sh ~/project/sources/ft_printf/headers/
   qa:
     docker: 
         - image: salemribeiro/42tests_salem:latest
