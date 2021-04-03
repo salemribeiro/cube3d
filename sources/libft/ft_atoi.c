@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 20:47:11 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/05/07 20:48:00 by sfreitas         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:26:02 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		ft_spaces(int i, char *str)
 	return (i);
 }
 
-int				ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
 	char						*atstr;
 	unsigned long long int		ans;

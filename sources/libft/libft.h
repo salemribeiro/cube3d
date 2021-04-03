@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:35:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/05/08 19:29:10 by sfreitas         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:27:44 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			*ft_strchr(const char *source, int caractere);
 char			*ft_strrchr(const char *source, int caractere);
 char			*ft_strnstr(const char *s1, const char *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-int				ft_atoi(const char *str);
+long long int	ft_atoi(const char *str);
 int				ft_isalpha(int caracter);
 int				ft_isdigit(int caracter);
 int				ft_isalnum(int caracter);
@@ -59,7 +59,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *s2);
 char			**ft_split(char const *s, char c);
-char			*ft_itoa(int n);
+char			*ft_itoa(long long int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);

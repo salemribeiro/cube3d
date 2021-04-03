@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:57:20 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/02/27 10:52:44 by sfreitas         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:28:13 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*createstring(char *ptr, unsigned int value, char signal, int d)
 	return (ptr);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long long int n)
 {
 	unsigned int	value;
 	int				digits;
