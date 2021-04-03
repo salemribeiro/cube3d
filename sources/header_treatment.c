@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header_treatment.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:10:47 by salem             #+#    #+#             */
-/*   Updated: 2021/04/01 23:21:54 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/03 17:24:23 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static int	get_texture(const char *line)
 
 static int	get_color(const char *line)
 {
-	char **word;
-	char **color;
+	char	**word;
+	char	**color;
 
 	word = ft_split(line, ' ');
 	color = ft_split(word[1], ',');
@@ -70,19 +70,17 @@ static int	get_color(const char *line)
 		message_err(INCORRECT_COLOR);
 	if (!ft_strncmp(word[0], "C", 1))
 	{
-		if (g_header.ce_color[0] || g_header.ce_color[1] || g_header.ce_color[2])
+		if (g_header.ce_color[0] || g_header.ce_color[1] ||
+			g_header.ce_color[2])
 			message_err(INCORRECT_COLOR);
-		g_header.ce_color[0] = ft_atoi(color[0]);
-		g_header.ce_color[1] = ft_atoi(color[1]);
-		g_header.ce_color[2] = ft_atoi(color[2]);
+		add_color(color, 'C');
 	}
 	else if (!ft_strncmp(word[0], "F", 1))
 	{
-		if (g_header.fl_color[0] || g_header.fl_color[1] || g_header.fl_color[2])
+		if (g_header.fl_color[0] || g_header.fl_color[1] ||
+			g_header.fl_color[2])
 			message_err(INCORRECT_COLOR);
-		g_header.fl_color[0] = ft_atoi(color[0]);
-		g_header.fl_color[1] = ft_atoi(color[1]);
-		g_header.fl_color[2] = ft_atoi(color[2]);
+		add_color(color, 'F');
 	}
 	clear_pointer(word);
 	clear_pointer(color);
