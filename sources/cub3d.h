@@ -6,7 +6,7 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:55:37 by sfreitas          #+#    #+#             */
-/*   Updated: 2021/04/01 23:16:03 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/02 12:13:24 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ enum		e_erros
 
 char		**g_map;
 int			g_count_line;
+
 struct		s_header
 {
 	int		resolution[2];

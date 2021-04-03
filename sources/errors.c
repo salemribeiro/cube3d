@@ -6,7 +6,7 @@
 /*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 02:57:18 by salem             #+#    #+#             */
-/*   Updated: 2021/04/01 23:16:41 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/02 11:13:40 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	verify_line(const char *line)
 int		message_err(const int err_number)
 {
 	ft_printf("Error\n%s\n", g_errors[err_number]);
-	exit(1);
+	exit(err_number);
 }
