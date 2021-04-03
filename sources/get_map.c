@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salem <salem@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 12:11:02 by salem             #+#    #+#             */
-/*   Updated: 2021/04/01 23:18:35 by salem            ###   ########.fr       */
+/*   Updated: 2021/04/03 14:34:24 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		check_caracter(char c)
 {
 	if (c != '0' && c != '1' && c != '2' && c != ' ' &&
-		c != 'N' && c != 'S' && c != 'E' && c != 'W')
+		c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '\0')
 		message_err(INCORRECT_MAP);
 	return (SUCCESS);
 }
