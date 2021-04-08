@@ -36,8 +36,8 @@ if [ -e "$1" ]; then
 	echo "Arquivo executavel encontrado"
 	if [ -e "$2" ]; then
 		echo "Mapa encontrado"
-		eval "$1 $2"
-		if [ "$?" -eq "$3" ]; then
+		teste=$(eval "$1 $2")
+		if [ "$teste" -eq "$3" ]; then
 			echo "Programa executou de maneira correta"
 			exit 0;
 		else
@@ -45,12 +45,12 @@ if [ -e "$1" ]; then
 			exit 1
 		fi
 	else
-        echo "Mapa não encontrado"
-        exit 1;   
-    fi
+		echo "Mapa não encontrado"
+		exit 1;
+	fi
 else
-    echo "Erro - Arquivo executavel não encontrado"
-    exit 1;
+	echo "Erro - Arquivo executavel não encontrado"
+	exit 1;
 fi
 echo "Sucesso!!!"
 exit 0
