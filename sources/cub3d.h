@@ -6,7 +6,7 @@
 /*   By: sfreitas <sfreitas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:55:37 by sfreitas          #+#    #+#             */
-/*   Updated: 2021/04/03 17:27:50 by sfreitas         ###   ########.fr       */
+/*   Updated: 2021/04/07 19:12:20 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <stdlib.h>
 # include <math.h>
 
-# define SUCCESS 0
 
 static char	g_errors[][50] =
 {
+	"sucesso",
 	"number of arguments",
 	"source is not found",
 	"can not open file",
@@ -30,18 +30,19 @@ static char	g_errors[][50] =
 	"file was not read in full",
 	"resolution is incorrect",
 	"source for texture is empty",
-	"incorrect value or invalid range for color",
+	"incorrect value for color",
 	"map data error, information is not valid",
-	"map is empty",
+	"map empty",
 	"invalid file",
 	"invalid header",
 	"invalid texture",
 	"your map have so much players",
-	"map is invalid"
+	"map invalid"
 };
 
 enum		e_erros
 {
+	SUCCESS,
 	ARGUMENT,
 	SOURCE_NFOUND,
 	OPEN_FILE,
