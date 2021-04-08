@@ -1,4 +1,5 @@
 *.o
+.*.swp
 ./docs
 cub3D
 cub3d.cub
