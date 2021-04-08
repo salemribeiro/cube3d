@@ -1,8 +1,8 @@
 version: 2.1
 jobs:
   norminette_tests:
-    docker: 
-      - image: salemribeiro/42tests_salem:1.3
+    docker:
+      - image: salemribeiro/42tests_salem:1.4
     steps:
       - checkout
       - run: norme.sh ~/project/
@@ -13,14 +13,14 @@ jobs:
       - run: norme.sh ~/project/sources/ft_printf/headers/
   wrong_maps_tests:
     docker:
-      - image: salemribeiro/42tests_salem:1.3
+      - image: salemribeiro/42tests_salem:1.4
     steps:
       - checkout
       - run: cd ~/project/ && make
       - run: maps.sh ~/project/cub3D ~/project/tests/err_maps/map_2_players.cub 14
-  currect_maps_tests:
+  correct_maps_tests:
     docker:
-      - image: salemribeiro/42tests_salem:1.3
+      - image: salemribeiro/42tests_salem:1.4
     steps:
       - checkout
       - run: cd ~/project/ && make
@@ -31,4 +31,4 @@ workflows:
     jobs:
       - norminette_tests
       - wrong_maps_tests
-      - currect_maps_tests
+      - correct_maps_tests
