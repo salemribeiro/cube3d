@@ -14,7 +14,7 @@ CC		= clang
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 
-PATHOBJ = ./objects/
+PATHOBJ = ./
 
 
 SRCS	=	buffer_functions.c \
