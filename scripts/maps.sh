@@ -39,7 +39,7 @@ if [ -e "$1" ]; then
 		eval "$1 $2"
 		if [ "$?" -eq "$3" ]; then
 			echo "Programa executou de maneira correta"
-			exit "$3";
+			exit 0;
 		else
 			echo "Teste deveria retornar o erro $3"
 			exit 1
