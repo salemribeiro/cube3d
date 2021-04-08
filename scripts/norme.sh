@@ -15,19 +15,6 @@
 #
 #   Exemplos:
 #       $ ./norme.sh [dir]
-# [TODO]
-#       $ ./norme.sh -m dir1 [dir2] [dir3] [dir...]
-#       $ ./norme.sh -r     
-#
-# [TODO]
-#   Opções são:
-#       -m | --multiple     Executa a verificação da norminette nos diretórios
-#                               inclusos nos argumentos, deve existir ao menos
-#                               um diretório passado por argumento.
-#       -r | --recursive    Executa a verificação da norminette em todos os
-#                               diretórios recursivamente.
-#       -h | --help        Exibe tela de ajuda para o usuário.
-#
 #   Importate: Norminette só verifica arquivos com extensão "*.c" ou "*.h"
 
 norminetteC="~/.norminette/norminette.rb *.c"
@@ -57,7 +44,4 @@ else
 fi
 echo "Sucesso!!!"
 exit 0
-
-
-
 
